@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">SmartTraffic AI</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#system">System</a></li>
+            <li><a href="#simulation">Simulation</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- 1. Home -->
+    <header id="home" class="hero section">
+        <div class="hero-content container">
+            <h1>Traffic Management System</h1>
+            <h2>Smart Junction Control with Banker’s Algorithm</h2>
+            <p>An intelligent traffic automation system ensuring safe, conflict-free, and priority-aware intersection control.</p>
+            <div class="btn-group">
+                <a href="#simulation" class="btn btn-primary">View Simulation</a>
+                <a href="#system" class="btn btn-secondary">Explore System</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. About the Project -->
+    <section id="about" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title text-center">About the Project</h2>
+            <div class="text-card content-wrap">
+                <p>This project is a <strong>Smart Traffic Management Website</strong> designed for controlling vehicles at a 4-way junction. It utilizes dynamic signal automation, real-time queue monitoring, and safe allocation logic to ensure efficient traffic flow without deadlocks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Context Grid (3,4,5) -->
+    <section id="context" class="section">
+        <div class="container cards-grid">
+            <!-- 3. Problem Statement -->
+            <div class="card">
+                <h3>Problem Statement</h3>
+                <p>Modern road intersections suffer from heavy traffic congestion, signal conflicts, and poor manual control. Traditional timer-based systems lead to massive waiting times, unoptimized green signals for empty lanes, and critical emergency vehicle delays.</p>
+            </div>
+            
+            <!-- 4. Need for the Project -->
+            <div class="card">
+                <h3>Need for the Project</h3>
+                <ul class="custom-list">
+                    <li>Reduce traffic congestion at junctions.</li>
+                    <li>Improve traffic flow dynamically based on load.</li>
+                    <li>Reduce unnecessary waiting times.</li>
+                    <li>Support and prioritize emergency vehicles safely.</li>
+                    <li>Improve overall road safety using smart automation for signal control.</li>
+                </ul>
+            </div>
+
+            <!-- 5. Objectives -->
+            <div class="card">
+                <h3>Objectives</h3>
+                <ul class="custom-list">
+                    <li>Implement working, automated traffic lights.</li>
+                    <li>Display and track vehicles dynamically on roads.</li>
+                    <li>Control vehicle movement safely at the junction.</li>
+                    <li>Monitor lane queues continuously.</li>
+                    <li>Handle emergency priority seamlessly.</li>
+                    <li>Use Banker’s Algorithm for safe signal allocation.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Traffic Management System (Main Section) -->
+    <section id="system" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title text-center">Traffic Management System</h2>
+            <div class="content-wrap">
+                <p>The core of this project is the comprehensive <strong>Traffic Control Engine</strong>. Operating a 4-way road junction, the system manages the North, South, East, and West lanes. It features:</p>
+                <ul class="custom-list two-col-list mt-2">
+                    <li>Four distinct road lanes crossing centrally.</li>
+                    <li>Separate, independent signals for each lane.</li>
+                    <li>Automatic intersection signal switching.</li>
+                    <li>Timer-based dynamic traffic control.</li>
+                    <li>Real-time vehicle queue management.</li>
+                    <li>Congestion-based lane processing.</li>
+                    <li>Emergency vehicle priority detection.</li>
+                    <li>Pedestrian safety support and transition timings.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="logic" class="section">
+        <div class="container cards-grid">
+            <!-- 7. Traffic Signal Control Logic -->
+            <div class="card">
+                <h3>Traffic Signal Control Logic</h3>
+                <ul class="custom-list">
+                    <li><strong>Red:</strong> Stop. Do not enter the junction.</li>
+                    <li><strong>Yellow:</strong> Wait/Ready. Safely slows down traffic before a switch.</li>
+                    <li><strong>Green:</strong> Go. Safe passage granted.</li>
+                    <li>Only <strong>one safe lane</strong> gets the green signal at a time to prevent collisions.</li>
+                    <li>All other conflicting lanes remain completely Red.</li>
+                    <li>Signal timing dynamically changes based on traffic load.</li>
+                </ul>
+            </div>
+
+            <!-- 8. Vehicle Monitoring and Queue Management -->
+            <div class="card">
+                <h3>Vehicle Monitoring & Queues</h3>
+                <ul class="custom-list">
+                    <li>Each lane maintains a live <strong>vehicle count</strong> (queue).</li>
+                    <li>The system checks which lane has more waiting vehicles to assign priority intelligently.</li>
+                    <li>Queue length helps determine the duration of the green signal priority.</li>
+                    <li>Vehicle counts update after every signal cycle.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 & 10 -->
+    <section class="section bg-darker">
+        <div class="container content-split">
+            <!-- 9. Emergency Traffic Handling -->
+            <div class="text-content text-card">
+                <h3>Emergency Traffic Handling</h3>
+                <p>In critical situations, seconds save lives. The system handles emergencies automatically:</p>
+                <ul class="custom-list">
+                    <li>Detection of ambulance, fire truck, or police vehicles in the queue.</li>
+                    <li>The emergency lane receives the highest priority instantly.</li>
+                    <li>The system <em>safely</em> changes the current green signal to yellow, then red.</li>
+                    <li>Grants immediate green access for safe emergency movement.</li>
+                </ul>
+            </div>
+
+            <!-- 10. Banker’s Algorithm -->
+            <div class="text-content info-card border-accent">
+                <h3>Banker’s Algorithm Support</h3>
+                <p>Banker’s Algorithm is used as the backend <strong>decision-making method</strong> for the safe allocation of traffic resources. It checks if granting a lane green light keeps the intersection in a safe state.</p>
+                <h4 class="mt-2">Mapping OS to Traffic:</h4>
+                <ul class="custom-list mb-0">
+                    <li><strong>Process:</strong> Each Lane (North, South, East, West).</li>
+                    <li><strong>Resources:</strong> Green time slot, intersection access, lane priority.</li>
+                    <li><strong>Allocation:</strong> Currently assigned signal time.</li>
+                    <li><strong>Maximum:</strong> Total required time to clear the lane entirely.</li>
+                    <li><strong>Available:</strong> Remaining free time/access.</li>
+                    <li><strong>Need:</strong> Maximum minus Allocation.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container content-split">
+            <!-- 11. System Architecture -->
+            <div class="text-content">
+                <h2 class="section-title">System Architecture</h2>
+                <ul class="custom-list">
+                    <li><strong>Physical Layer:</strong> 4-way traffic lanes, traffic signals, visible vehicles.</li>
+                    <li><strong>Core Layer:</strong> Signal controller, real-time timer countdown.</li>
+                    <li><strong>Sensing Layer:</strong> Queue monitoring module, emergency vehicle detection module.</li>
+                    <li><strong>Decision Layer:</strong> Banker’s Algorithm safety verification module.</li>
+                    <li><strong>Interface:</strong> Live visual simulation dashboard.</li>
+                </ul>
+            </div>
+
+            <!-- 12. Working Process -->
+            <div class="text-content">
+                <h2 class="section-title">Working Process</h2>
+                <ol class="custom-list ordered-list">
+                    <li>Vehicles arrive at different lanes.</li>
+                    <li>Vehicle queue count is collected.</li>
+                    <li>Controller monitors lane queues.</li>
+                    <li>Lane requests green signal time.</li>
+                    <li>Controller checks conditions.</li>
+                    <li><strong>Banker’s Algorithm verifies safe resource allocation.</strong></li>
+                    <li>Selected lane safely gets the green signal.</li>
+                    <li>Vehicles visually move through the junction.</li>
+                    <li>Yellow signal appears before switching.</li>
+                    <li>Data updates continuously; emergency lanes get priority when requested.</li>
+                    <li>Process repeats.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Live Traffic Simulation (THE STAR) -->
+    <section id="simulation" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title text-center">Live Traffic Simulation</h2>
+            <p class="text-center subtitle mb-3">A fully working visual simulation demonstrating smart traffic management in action. Vehicles move in real-time based on signal states and Banker's Algorithm decisions.</p>
+
+            <div class="simulation-dashboard">
+                <!-- Visual Intersection -->
+                <div class="traffic-visualizer">
+                    <div class="intersection" id="intersection-container">
+                        <div class="road-vertical"></div>
+                        <div class="road-horizontal"></div>
+                        <div class="center-box"></div>
+                        
+                        <!-- Signal Lights -->
+                        <div class="traffic-light tl-north" id="tl-North">
+                            <div class="bulb red active"></div><div class="bulb yellow"></div><div class="bulb green"></div>
+                        </div>
+                        <div class="traffic-light tl-south" id="tl-South">
+                            <div class="bulb red active"></div><div class="bulb yellow"></div><div class="bulb green"></div>
+                        </div>
+                        <div class="traffic-light tl-east" id="tl-East">
+                            <div class="bulb red active"></div><div class="bulb yellow"></div><div class="bulb green"></div>
+                        </div>
+                        <div class="traffic-light tl-west" id="tl-West">
+                            <div class="bulb red active"></div><div class="bulb yellow"></div><div class="bulb green"></div>
+                        </div>
+                        
+                        <div class="active-lane-indicator" id="active-lane-display">IDLE</div>
+                        
+                        <!-- Countdown Timer Display -->
+                        <div class="countdown-overlay">
+                            Timer: <span id="countdown-timer">00</span>s
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Controls & 14. Output Panel -->
+                <div class="simulation-controls">
+                    <div class="panel-card user-controls border-accent">
+                        <h3>Traffic Control Panel</h3>
+                        <p class="text-sm">Set initial vehicles in lanes and control the simulation.</p>
+                        
+                        <div class="input-grid mt-2">
+                            <div class="input-group">
+                                <label>North Queue</label>
+                                <input type="number" id="in-N" value="4" min="0" max="10">
+                            </div>
+                            <div class="input-group">
+                                <label>South Queue</label>
+                                <input type="number" id="in-S" value="6" min="0" max="10">
+                            </div>
+                            <div class="input-group">
+                                <label>East Queue</label>
+                                <input type="number" id="in-E" value="3" min="0" max="10">
+                            </div>
+                            <div class="input-group">
+                                <label>West Queue</label>
+                                <input type="number" id="in-W" value="5" min="0" max="10">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group mt-2">
+                            <label>Base Green Signal Time (sec)</label>
+                            <input type="number" id="in-time" value="5" min="2" max="15">
+                        </div>
+                        
+                        <div class="button-group mt-3">
+                            <button class="btn btn-primary" id="btn-start">Start Simulation</button>
+                            <button class="btn btn-warning" id="btn-pause">Pause</button>
+                            <button class="btn btn-danger" id="btn-emergency">Emergency at East</button>
+                            <button class="btn btn-secondary" id="btn-reset">Reset Simulation</button>
+                        </div>
+                        <p id="error-msg" class="error-text mt-2"></p>
+                    </div>
+
+                    <!-- 14. Banker's Algorithm Output Panel -->
+                    <div class="panel-card bankers-dashboard mt-3">
+                        <h3>Banker's Algorithm Output Panel</h3>
+                        
+                        <div class="status-indicator">
+                            <span class="status-label">System State:</span>
+                            <span id="system-state" class="badge">Awaiting Start</span>
+                        </div>
+                        
+                        <div class="table-scroll">
+                            <table class="data-table mt-2">
+                                <thead>
+                                    <tr>
+                                        <th>Lane</th>
+                                        <th>Allocated</th>
+                                        <th>Max Need</th>
+                                        <th>Remaining Need</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="banker-table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="dashboard-stats mt-2">
+                            <p><strong>Available Resources:</strong> <span id="avail-res" class="text-accent">[1, 20, 4]</span></p>
+                            <p><strong>Safe Sequence:</strong> <span id="safe-sequence-display" class="text-accent">None</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15 & 16 -->
+    <section class="section">
+        <div class="container cards-grid">
+            <!-- 15. Real-World Applications -->
+            <div class="card">
+                <h3>Real-World Applications</h3>
+                <ul class="custom-list">
+                    <li>Smart City Traffic Control grids.</li>
+                    <li>Highway junction and toll plaza management.</li>
+                    <li>Emergency response systems (Ambulance routing).</li>
+                    <li>Urban intersection optimization in heavy-traffic zones.</li>
+                </ul>
+            </div>
+            
+            <!-- 16. Advantages -->
+            <div class="card">
+                <h3>Advantages</h3>
+                <ul class="custom-list">
+                    <li>Significantly better traffic flow and throughput.</li>
+                    <li>Drastically less waiting time for commuters.</li>
+                    <li>Improved overall road safety.</li>
+                    <li>Critical emergency vehicle support capability.</li>
+                    <li>Intelligent resource allocation scaling to any junction type.</li>
+                    <li>Practical, real-world Operating System concept implementation.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. FAQ -->
+    <section id="faq" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
+            <div class="faq-accordion mt-3">
+                <div class="faq-item">
+                    <h4 class="faq-question">How does the simulation handle queues?</h4>
+                    <p class="faq-answer">Vehicles are visually stacked in their respective lanes. As the light turns green, the vehicles animate continuously across the junction and disappear, dynamically updating the queue counter.</p>
+                </div>
+                <div class="faq-item">
+                    <h4 class="faq-question">What is the role of Banker's Algorithm here?</h4>
+                    <p class="faq-answer">It acts strictly as a supporting background logic checking for 'Safe States'. It prevents multiple lanes from requesting conflicting intersection times that could cause a complete traffic deadlock, ensuring smoother operations within the primary Traffic System.</p>
+                </div>
+                <div class="faq-item">
+                    <h4 class="faq-question">How does the Emergency Button work?</h4>
+                    <p class="faq-answer">When an emergency occurs at the East lane, the system safely triggers a yellow phase for the active lane, halts it securely, and immediately grants priority to the East lane to clear the emergency vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. Team & 19. Conclusion -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content content-split">
+                <!-- 19. Conclusion -->
+                <div class="footer-col">
+                    <h3 class="mb-2 text-white">Conclusion</h3>
+                    <p>The system successfully combines practical traffic management hardware logic with the robust Banker’s Algorithm for safe and efficient junction control. By making safety and queue monitoring the priority, this project proves the power of software-driven urban development.</p>
+                </div>
+                
+                <!-- 18. Team / Contact -->
+                <div class="footer-col">
+                    <h3 class="mb-2 text-white">Team & Project Info</h3>
+                    <div class="team-info">
+                        <p><strong>Developed By:</strong> Student Project Team</p>
+                        <p><strong>Category:</strong> Final Year Mini-Project</p>
+                        <p><strong>Topic:</strong> Traffic Management with Safe Allocation Logic</p>
+                        <p><strong>Contact:</strong> group@traffic-project.edu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom mt-3 text-center">
+                <p>&copy; 2026 Smart Traffic Management System Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

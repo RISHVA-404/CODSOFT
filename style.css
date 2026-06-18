@@ -1,0 +1,241 @@
+/* Root Variables & Reset */
+:root {
+    --bg-primary: #0f111a;
+    --bg-secondary: #171a25;
+    --bg-tertiary: #1f2433;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --red-glow: #ef4444;
+    --yellow-glow: #eab308;
+    --green-glow: #22c55e;
+    --road-color: #2a2d39;
+    --road-lines: #ffffff;
+    --font-main: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Typography & Utilities */
+h1, h2, h3, h4 { color: #fff; line-height: 1.3; }
+p { margin-bottom: 1rem; color: var(--text-secondary); }
+.text-center { text-align: center; }
+.text-white { color: #fff; }
+.text-sm { font-size: 0.9rem; }
+.text-accent { color: #60a5fa; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 2rem; }
+.bg-darker { background-color: var(--bg-secondary); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+/* Buttons */
+.btn {
+    display: inline-block; padding: 0.75rem 1.5rem; border-radius: 0.5rem;
+    font-weight: 600; text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.3s ease; text-align: center;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }
+.btn-secondary { background: var(--bg-tertiary); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+.btn-secondary:hover { background: #333a4d; }
+.btn-danger { background: var(--red-glow); color: #fff; }
+.btn-danger:hover { background: #dc2626; box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+.btn-warning { background: #d97706; color: #fff; }
+.btn-warning:hover { background: #b45309; }
+.btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.button-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.error-text { color: var(--red-glow); font-size: 0.95rem; font-weight: 600; }
+
+/* Navigation */
+.navbar {
+    position: fixed; top: 0; width: 100%;
+    background: rgba(15, 17, 26, 0.9); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 3rem; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.logo { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.nav-links { list-style: none; display: flex; gap: 1.5rem; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: #fff; }
+.hamburger { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s; }
+
+/* Hero Section */
+.hero {
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    padding-top: 60px;
+}
+.hero-content { max-width: 800px; animation: fadeIn 1s ease-in-out; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(to right, #60a5fa, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+.hero h2 { font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; color: #e2e8f0; }
+.hero p { font-size: 1.1rem; margin-bottom: 2.5rem; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Sections general */
+.section { padding: 6rem 0; }
+.section-title { font-size: 2.5rem; margin-bottom: 2rem; position: relative; padding-bottom: 0.5rem; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px; background: var(--accent); border-radius: 2px; }
+.text-center.section-title::after { left: 50%; transform: translateX(-50%); }
+
+/* Grids and Split Layouts */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.content-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.content-wrap { max-width: 900px; margin: 0 auto; text-align: left; }
+
+.card, .text-card, .info-card {
+    background: var(--bg-tertiary); padding: 2rem; border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.border-accent { border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.05); }
+
+/* Lists */
+.custom-list { padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.custom-list li { margin-bottom: 0.5rem; }
+.ordered-list { list-style-type: decimal; }
+.ordered-list li { font-weight: 500; color: #e2e8f0; margin-bottom: 0.8rem; }
+.two-col-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* Simulation Display */
+.simulation-dashboard { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; margin-top: 2rem; }
+.panel-card { background: var(--bg-secondary); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.05); }
+
+/* Traffic Visualizer Core */
+.traffic-visualizer {
+    background: #000; border-radius: 1rem; padding: 1rem;
+    display: flex; justify-content: center; align-items: center;
+    position: relative; overflow: hidden; min-height: 550px;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.intersection {
+    position: relative; width: 400px; height: 400px;
+    background: #111; overflow: hidden; border-radius: 8px; border: 2px solid #333;
+}
+
+.road-vertical {
+    position: absolute; left: 150px; width: 100px; top: -100px; bottom: -100px;
+    background: var(--road-color); border-left: 4px dashed var(--road-lines); border-right: 4px dashed var(--road-lines); z-index: 1;
+}
+.road-vertical::after { content: ''; position: absolute; left: 48px; top: 0; bottom: 0; width: 4px; background: repeating-linear-gradient(to bottom, #f59e0b, #f59e0b 20px, transparent 20px, transparent 40px); }
+
+.road-horizontal {
+    position: absolute; top: 150px; height: 100px; left: -100px; right: -100px;
+    background: var(--road-color); border-top: 4px dashed var(--road-lines); border-bottom: 4px dashed var(--road-lines); z-index: 1;
+}
+.road-horizontal::after { content: ''; position: absolute; top: 48px; left: 0; right: 0; height: 4px; background: repeating-linear-gradient(to right, #f59e0b, #f59e0b 20px, transparent 20px, transparent 40px); }
+
+.center-box {
+    position: absolute; left: 151px; top: 151px; width: 98px; height: 98px;
+    background: var(--road-color); z-index: 2; /* intersection center */
+}
+
+/* Vehicles rendering */
+.vehicle {
+    position: absolute; border-radius: 4px; z-index: 5;
+    transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 1s cubic-bezier(0.5, 0, 0.5, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+}
+.v-up-down { width: 25px; height: 45px; } /* North, South */
+.v-left-right { width: 45px; height: 25px; } /* East, West */
+
+/* Headlights */
+.v-up-down::after { content: ''; position: absolute; bottom: 0; left: 2px; right: 2px; height: 5px; background: rgba(255,0,0,0.8); border-radius: 2px; }
+.v-up-down::before { content: ''; position: absolute; top: 0; left: 2px; right: 2px; height: 5px; background: #fff; border-radius: 2px; box-shadow: 0 -5px 10px rgba(255,255,255,0.6); }
+
+.v-left-right::after { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 5px; background: rgba(255,0,0,0.8); border-radius: 2px; }
+.v-left-right::before { content: ''; position: absolute; right: 0; top: 2px; bottom: 2px; width: 5px; background: #fff; border-radius: 2px; box-shadow: 5px 0 10px rgba(255,255,255,0.6); }
+
+.v-emergency { animation: flashEmergency 0.4s infinite; }
+@keyframes flashEmergency {
+    0% { background: #ef4444; box-shadow: 0 0 15px #ef4444; }
+    50% { background: #3b82f6; box-shadow: 0 0 15px #3b82f6; }
+    100% { background: #ef4444; box-shadow: 0 0 15px #ef4444; }
+}
+
+/* Traffic Signals Positioning */
+.traffic-light {
+    position: absolute; background: #000; padding: 4px; border-radius: 8px; border: 2px solid #333;
+    display: flex; gap: 4px; z-index: 20; box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}
+.tl-north { top: 110px; left: 110px; flex-direction: column; }
+.tl-south { bottom: 110px; right: 110px; flex-direction: column; }
+.tl-east { top: 110px; right: 110px; flex-direction: row; }
+.tl-west { bottom: 110px; left: 110px; flex-direction: row; }
+
+.bulb { width: 14px; height: 14px; border-radius: 50%; opacity: 0.2; }
+.bulb.red { background: var(--red-glow); }
+.bulb.yellow { background: var(--yellow-glow); }
+.bulb.green { background: var(--green-glow); }
+
+.bulb.red.active { box-shadow: 0 0 15px var(--red-glow); opacity: 1; }
+.bulb.yellow.active { box-shadow: 0 0 15px var(--yellow-glow); opacity: 1; }
+.bulb.green.active { box-shadow: 0 0 15px var(--green-glow); opacity: 1; }
+
+.active-lane-indicator {
+    position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.8);
+    color: #fff; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-family: monospace; z-index: 100; font-size: 1.1rem; border: 1px solid #333;
+}
+.countdown-overlay {
+    position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.8);
+    color: #fff; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-family: monospace; z-index: 100; font-size: 1.1rem; border: 1px solid #333;
+}
+#countdown-timer { color: var(--green-glow); font-size: 1.2rem;}
+
+/* Controls & UI */
+.input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.input-group { display: flex; flex-direction: column; }
+.input-group label { font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary); font-weight: 600;}
+.input-group input { padding: 0.6rem; background: var(--bg-primary); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 6px; font-weight: bold; }
+.input-group input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); }
+
+.status-indicator { margin: 1rem 0; display: flex; align-items: center; gap: 1rem; }
+.status-label { font-weight: 600; color: var(--text-secondary); }
+.badge { padding: 4px 12px; border-radius: 20px; font-weight: bold; background: #333; font-size: 0.9rem;}
+.badge.safe { background: rgba(34, 197, 94, 0.15); color: var(--green-glow); border: 1px solid var(--green-glow); }
+.badge.unsafe { background: rgba(239, 68, 68, 0.15); color: var(--red-glow); border: 1px solid var(--red-glow); }
+
+.table-scroll { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; text-align: center; }
+.data-table th, .data-table td { padding: 0.6rem; border: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+.data-table th { background: rgba(0,0,0,0.3); color: #e2e8f0; }
+
+.dashboard-stats p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+/* FAQ */
+.faq-accordion { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.faq-item { background: var(--bg-tertiary); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+.faq-question { font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
+.faq-answer { color: var(--text-secondary); margin-bottom: 0; }
+
+/* Footer */
+.footer { background: var(--bg-secondary); padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-col p { margin-bottom: 0.5rem; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .simulation-dashboard { grid-template-columns: 1fr; }
+    .content-split { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .hero h1 { font-size: 2.5rem; }
+    .intersection { transform: scale(0.8); }
+    .traffic-visualizer { min-height: 400px; }
+}
